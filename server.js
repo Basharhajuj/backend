@@ -24,11 +24,9 @@ app.use(bodyParser.json());
 
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.log(err));
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB Atlas'))
+  .catch(err => console.error('Error connecting to MongoDB:', err));
 
 // API Routes
 app.use('/api/reels', reelsRoutes);
