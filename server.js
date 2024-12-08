@@ -21,6 +21,8 @@ if (!process.env.JWT_SECRET) {
 app.use(cors());
 app.use(bodyParser.json());
 
+
+
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -40,4 +42,8 @@ app.use('/api', adminRoutes);
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+});
+
+app.get('/', (req, res) => {
+  res.send('Backend is running!');
 });
